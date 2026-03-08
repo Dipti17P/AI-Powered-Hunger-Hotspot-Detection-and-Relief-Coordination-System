@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 // Create axios instance
 const API = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: import.meta.env.VITE_API_URL || "https://ai-powered-hunger-hotspot-detection-and.onrender.com/api",
   withCredentials: false, // keep false unless using cookies
 });
 
