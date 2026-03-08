@@ -2,12 +2,14 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_API_URL || "https://ai-powered-hunger-hotspot-detection-and.onrender.com/api";
+
 function HungerMap() {
 
   const [reports, setReports] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/reports")
+    axios.get(`${BASE_URL}/reports`)
       .then(res => {
         setReports(res.data);
       })
